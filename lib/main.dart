@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bootcamp/view/googleMaps/convert_to_address.dart';
+import 'package:flutter_bootcamp/view/googleMaps/get_user_current_location.view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: "Rubik Regular",
       ),
-      home: const ConvertToAddress(),
+      home: const GetCurrentUserLocationView(),
     );
   }
 }
