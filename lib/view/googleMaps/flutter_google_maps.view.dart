@@ -47,15 +47,32 @@ class _FlutterGoogleMapPracticeState extends State<FlutterGoogleMapPractice> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoogleMap(
-        mapType: MapType.normal,
-        myLocationEnabled: true,
-        compassEnabled: true,
-        initialCameraPosition: kGooglePosition,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
+      body: SafeArea(
+        child: GoogleMap(
+          mapType: MapType.normal,
+          myLocationEnabled: true,
+          compassEnabled: true,
+          initialCameraPosition: kGooglePosition,
+          onMapCreated: (GoogleMapController controller) {
+            _controller.complete(controller);
+          },
+          markers: Set<Marker>.of(_marker),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          GoogleMapController controller = await _controller.future;
+          controller.animateCamera(
+            CameraUpdate.newCameraPosition(
+              const CameraPosition(
+                target: LatLng(23.435801, 80.846313),
+                zoom: 14.0,
+              ),
+            ),
+          );
+          setState(() {});
         },
-        markers: Set<Marker>.of(_marker),
+        child: const Icon(Icons.pin_drop),
       ),
     );
   }
