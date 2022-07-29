@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bootcamp/view/googleMaps/polygon_view.view.dart';
+import 'package:flutter_bootcamp/view/googleMaps/polyline_view.view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: "Rubik Regular",
       ),
-      home: const PolygonView(),
+      home: const PolyLineView(),
     );
   }
 }
