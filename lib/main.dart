@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bootcamp/view/googleMaps/get_user_current_location.view.dart';
+import 'package:flutter_bootcamp/view/googleMaps/polygon_view.view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: "Rubik Regular",
       ),
-      home: const GetCurrentUserLocationView(),
+      home: const PolygonView(),
     );
   }
 }
