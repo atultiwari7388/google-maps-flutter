@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bootcamp/view/googleMaps/polyline_view.view.dart';
+import 'package:flutter_bootcamp/view/CalculatorApp/calculator_app.view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +12,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Maps',
+      title: 'Calculator App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: "Rubik Regular",
       ),
-      home: const PolyLineView(),
+      home: const CalculatorAppView(),
     );
   }
 }
