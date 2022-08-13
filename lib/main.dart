@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/view/CalculatorApp/calculator_app.view.dart';
+import 'package:flutter_bootcamp/view/MultiRoleBaseApp/multi_role_base_app.dart';
+import 'package:flutter_bootcamp/view/MultiRoleBaseApp/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Calculator App',
+      title: 'MultiRole Base App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: "Rubik Regular",
       ),
-      home: const CalculatorAppView(),
+      home: const SplashScreen(),
     );
   }
 }
