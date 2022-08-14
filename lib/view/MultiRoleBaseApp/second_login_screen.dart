@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/view/MultiRoleBaseApp/multi_role_base_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -75,10 +74,11 @@ class _SecondLoginScreenState extends State<SecondLoginScreen> {
                   sharedPref.setBool("isLogin", true);
 
                   //next screen
+                  // ignore: use_build_context_synchronously
                   Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => MultiRoleBaseApp()),
+                          builder: (context) => const MultiRoleBaseApp()),
                       (route) => false);
                 },
                 child: const Text(
