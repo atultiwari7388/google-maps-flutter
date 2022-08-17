@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/constants/color.constants.dart';
 import 'package:math_expressions/math_expressions.dart';
@@ -17,7 +16,7 @@ class _CalculatorAppViewState extends State<CalculatorAppView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      // backgroundColor: Colors.black,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -35,13 +34,13 @@ class _CalculatorAppViewState extends State<CalculatorAppView> {
                         alignment: Alignment.bottomRight,
                         child: Text(
                           userInput.toString(),
-                          style: headingText.copyWith(color: Colors.white),
+                          style: headingText.copyWith(color: Colors.black),
                         ),
                       ),
                       const SizedBox(height: 15.0),
                       Text(
                         answer.toString(),
-                        style: headingText.copyWith(color: Colors.white),
+                        style: headingText.copyWith(color: Colors.black),
                       ),
                     ],
                   ),
@@ -74,7 +73,7 @@ class _CalculatorAppViewState extends State<CalculatorAppView> {
                             }),
                         CustomButton(
                             text: "/",
-                            color: Colors.red,
+                            color: Colors.blue,
                             onTap: () {
                               userInput += "/";
                               setState(() {});
@@ -103,7 +102,7 @@ class _CalculatorAppViewState extends State<CalculatorAppView> {
                             }),
                         CustomButton(
                             text: "x",
-                            color: Colors.red,
+                            color: Colors.blue,
                             onTap: () {
                               userInput += "*";
                               setState(() {});
@@ -132,7 +131,7 @@ class _CalculatorAppViewState extends State<CalculatorAppView> {
                             }),
                         CustomButton(
                             text: "-",
-                            color: Colors.red,
+                            color: Colors.blue,
                             onTap: () {
                               userInput += "-";
                               setState(() {});
@@ -161,7 +160,7 @@ class _CalculatorAppViewState extends State<CalculatorAppView> {
                             }),
                         CustomButton(
                             text: "+",
-                            color: Colors.red,
+                            color: Colors.blue,
                             onTap: () {
                               userInput += "+";
                               setState(() {});
@@ -191,7 +190,7 @@ class _CalculatorAppViewState extends State<CalculatorAppView> {
                             }),
                         CustomButton(
                             text: "=",
-                            color: Colors.red,
+                            color: Colors.green,
                             onTap: () {
                               equalPress();
                               setState(() {});

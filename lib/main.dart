@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bootcamp/view/CalculatorApp/calculator_app.view.dart';
-import 'package:flutter_bootcamp/view/MultiRoleBaseApp/multi_role_base_app.dart';
-import 'package:flutter_bootcamp/view/MultiRoleBaseApp/splash_screen.dart';
+import 'package:flutter_bootcamp/view/NavigationAndRouting/navroute.navigationandrouting.dart';
+import 'package:flutter_bootcamp/view/NavigationAndRouting/secondroute_view.dart';
+import 'package:flutter_bootcamp/view/NavigationAndRouting/utils/routes.utils.dart';
+import 'package:flutter_bootcamp/view/NavigationAndRouting/utils/routes_name.utils.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,13 +15,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MultiRole Base App',
+      title: 'Food App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: "Rubik Regular",
+        scaffoldBackgroundColor: Colors.white,
       ),
-      home: const SplashScreen(),
+      // home: const NavRouteView(),
+      // initialRoute: NavRouteView.id,
+      // routes: {
+      //   NavRouteView.id: (context) => const NavRouteView(),
+      //   SecondRouteView.id: (context) => const SecondRouteView(),
+      // },
+
+      initialRoute: RouteName.navRouteScreen,
+      onGenerateRoute: Routes.onGenerateRoute,
     );
   }
 }
