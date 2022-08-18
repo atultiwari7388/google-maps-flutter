@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "690699366002",
+    "project_id": "flutter-bootcamp-notification",
+    "storage_bucket": "flutter-bootcamp-notification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690699366002:android:ce8e124aba4522e7b1dceb",
+        "android_client_info": {
+          "package_name": "com.example.flutter_bootcamp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690699366002-k756sa6vqfndfitdut9kjsgr9go7cvlu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGN7xalrwrT6QlxJL6xD7nvO3vRgVUXVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690699366002-k756sa6vqfndfitdut9kjsgr9go7cvlu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
