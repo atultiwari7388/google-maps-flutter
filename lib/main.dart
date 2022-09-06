@@ -3,7 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/view/FlutterPushnotification/notificationService/local_notification.services.dart';
-import 'package:flutter_bootcamp/view/FutureBuilder/future_builder.view.dart';
+import 'package:flutter_bootcamp/view/StreamBuilder/stream_builder_example.view.dart';
 
 Future<void> backgroundHandler(RemoteMessage message) async {
   if (kDebugMode) {
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Future Builder',
+      title: 'Stream Builder',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       // initialRoute: RouteName.navRouteScreen,
       // onGenerateRoute: Routes.onGenerateRoute,
 
-      home: const FutureBuilderExample(),
+      home: const StreamBuilderExample(),
     );
   }
 }
