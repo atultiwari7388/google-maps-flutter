@@ -4,7 +4,6 @@ import 'package:flutter_bootcamp/view/FoodApp/components/menu_card.dart';
 import 'package:flutter_bootcamp/view/FoodApp/components/restaruant_categories.dart';
 import 'package:flutter_bootcamp/view/FoodApp/components/restaurant_info.dart';
 import 'package:flutter_bootcamp/view/FoodApp/models/menu.dart';
-
 import 'components/restaurant_app_bar.component.dart';
 
 class RestaurantPage extends StatefulWidget {
