@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 
 class StreamBuilderExample extends StatefulWidget {
   const StreamBuilderExample({Key? key}) : super(key: key);
