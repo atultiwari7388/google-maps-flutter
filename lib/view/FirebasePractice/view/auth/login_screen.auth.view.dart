@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bootcamp/view/FirebasePractice/Services/AuthServices/auth_services.dart';
+import 'package:flutter_bootcamp/view/FirebasePractice/view/auth/phone_auth_screen.auth.dart';
 import 'package:flutter_bootcamp/view/FirebasePractice/view/auth/signup_screen.auth.view.dart';
 import 'package:flutter_bootcamp/view/FirebasePractice/widgets/round_button_widget.widget.dart';
 
@@ -106,6 +107,25 @@ class _FirebaseLoginScreenState extends State<FirebaseLoginScreen> {
                                 ),
                             child: const Text("Sign up")),
                       ],
+                    ),
+                    const SizedBox(height: 30),
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) =>
+                              const FirebasePhoneAuthenticationScreen(),
+                        ),
+                      ),
+                      child: Container(
+                        height: 50,
+                        width: double.maxFinite,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.deepOrange),
+                        ),
+                        child: const Center(child: Text("Login with phone")),
+                      ),
                     ),
                   ],
                 ),

@@ -39,6 +39,10 @@ class FirebaseAuthService {
           .signInWithEmailAndPassword(email: email, password: password)
           .then((value) {
         //login successfull
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (_) => const FirebaseHomeScreen()),
+            (route) => false);
         AppUtils().toastSuccessMessage(
             "Welcome back ${firebaseAuth.currentUser!.email}");
       }).onError((error, stackTrace) {
@@ -58,8 +62,10 @@ class FirebaseAuthService {
             context,
             MaterialPageRoute(builder: (_) => const FirebaseLoginScreen()),
             (route) => false);
+        AppUtils().toastSuccessMessage("Logout Successfully ");
+      }).onError((error, stackTrace) {
+        AppUtils().toastErrorMessage(error.toString());
       });
-      AppUtils().toastSuccessMessage("Logout Successfully ");
     } catch (e) {
       AppUtils().toastErrorMessage(e.toString());
     }

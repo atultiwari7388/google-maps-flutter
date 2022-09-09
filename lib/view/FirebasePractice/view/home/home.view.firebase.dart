@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/view/FirebasePractice/Services/AuthServices/auth_services.dart';
 
 class FirebaseHomeScreen extends StatefulWidget {
   const FirebaseHomeScreen({Key? key}) : super(key: key);
@@ -8,6 +9,33 @@ class FirebaseHomeScreen extends StatefulWidget {
 }
 
 class _FirebaseHomeScreenState extends State<FirebaseHomeScreen> {
+  final FirebaseAuthService authService = FirebaseAuthService();
+
+  void logout() {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return AlertDialog(
+          title: const Text("Logout"),
+          content: const Text("Are you sure you want to logout"),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text("No"),
+            ),
+            TextButton(
+              style: TextButton.styleFrom(primary: Colors.green),
+              onPressed: () {
+                authService.logoutUser(context);
+              },
+              child: const Text("Yes"),
+            )
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +44,12 @@ class _FirebaseHomeScreenState extends State<FirebaseHomeScreen> {
         elevation: 1.0,
         centerTitle: true,
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            onPressed: () => logout(),
+            icon: const Icon(Icons.logout_rounded),
+          ),
+        ],
       ),
     );
   }

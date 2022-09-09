@@ -19,7 +19,6 @@ class FirebaseSplashServices {
             (route) => false);
       });
     } else {
-      //
       Timer(const Duration(seconds: 10), () {
         Navigator.pushAndRemoveUntil(
             context,
