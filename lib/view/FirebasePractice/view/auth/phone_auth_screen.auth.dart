@@ -41,9 +41,9 @@ class _FirebasePhoneAuthenticationScreenState
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Please Enter your Phone Number +91",
+              "Please Enter your Phone Number.",
               style: TextStyle(
-                  fontSize: 30.0,
+                  fontSize: 25.0,
                   fontWeight: FontWeight.bold,
                   color: Colors.deepOrange.shade400),
             ),
@@ -82,7 +82,9 @@ class _FirebasePhoneAuthenticationScreenState
                         context,
                         MaterialPageRoute(
                           builder: (_) => FirebasePhoneVerificationCodeScreen(
-                              verificationId: verificationId),
+                            verificationId: verificationId,
+                            phoneNumber: _phoneController.text,
+                          ),
                         ),
                       );
                       setState(() {

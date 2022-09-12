@@ -56,6 +56,8 @@ dependencies:
   firebase_storage: ^10.3.7
   cloud_firestore: ^3.4.6
   fluttertoast: ^8.0.9
+  pin_code_fields: ^7.4.0
+  firebase_database: ^9.1.4
 
 dev_dependencies:
   flutter_test:

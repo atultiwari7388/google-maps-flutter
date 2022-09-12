@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/view/FirebasePractice/Services/AuthServices/auth_services.dart';
+import 'package:flutter_bootcamp/view/FirebasePractice/view/home/add_post_screen.view.dart';
 
 class FirebaseHomeScreen extends StatefulWidget {
   const FirebaseHomeScreen({Key? key}) : super(key: key);
@@ -50,6 +51,12 @@ class _FirebaseHomeScreenState extends State<FirebaseHomeScreen> {
             icon: const Icon(Icons.logout_rounded),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        elevation: 1,
+        onPressed: () => Navigator.push(
+            context, MaterialPageRoute(builder: (_) => const AddPostScreen())),
+        child: const Icon(Icons.add),
       ),
     );
   }

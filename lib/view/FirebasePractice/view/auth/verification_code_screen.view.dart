@@ -2,13 +2,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/view/FirebasePractice/utils/app_utils.utils.dart';
 import 'package:flutter_bootcamp/view/FirebasePractice/view/home/home.view.firebase.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../widgets/round_button_widget.widget.dart';
 
 class FirebasePhoneVerificationCodeScreen extends StatefulWidget {
   const FirebasePhoneVerificationCodeScreen(
-      {Key? key, required this.verificationId})
+      {Key? key, required this.verificationId, required this.phoneNumber})
       : super(key: key);
   final String verificationId;
+  final String phoneNumber;
 
   @override
   State<FirebasePhoneVerificationCodeScreen> createState() =>
@@ -35,21 +37,33 @@ class _FirebasePhoneVerificationCodeScreenState
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Please Enter OTP we will send on +91",
+              "Please Enter OTP we will send on ${widget.phoneNumber}",
               style: TextStyle(
                   fontSize: 30.0,
                   fontWeight: FontWeight.bold,
                   color: Colors.deepOrange.shade400),
             ),
             const SizedBox(height: 80),
-            TextFormField(
+
+            PinCodeTextField(
+              appContext: context,
+              length: 6,
+              onChanged: (value) {},
               controller: smsController,
-              keyboardType: TextInputType.phone,
-              decoration: const InputDecoration(
-                hintText: "6 digit code",
+              pinTheme: PinTheme(
+                shape: PinCodeFieldShape.circle,
               ),
-              maxLines: 1,
+              keyboardType: TextInputType.number,
             ),
+
+            // TextFormField(
+            //   controller: smsController,
+            //   keyboardType: TextInputType.phone,
+            //   decoration: const InputDecoration(
+            //     hintText: "6 digit code",
+            //   ),
+            //   maxLines: 1,
+            // ),
             const SizedBox(height: 50),
             RoundButtonWidget(
               title: "verify",
