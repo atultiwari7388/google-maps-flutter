@@ -54,7 +54,6 @@ class _AddPostScreenState extends State<AddPostScreen> {
                 });
                 databseRef
                     .child(DateTime.now().millisecondsSinceEpoch.toString())
-                    .child("data")
                     .set({
                   "title": postController.text.toString(),
                   "id": DateTime.now().millisecondsSinceEpoch.toString()
