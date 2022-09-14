@@ -52,11 +52,12 @@ class _AddPostScreenState extends State<AddPostScreen> {
                 setState(() {
                   isLoading = true;
                 });
-                databseRef
-                    .child(DateTime.now().millisecondsSinceEpoch.toString())
-                    .set({
+
+                String id = DateTime.now().millisecondsSinceEpoch.toString();
+
+                databseRef.child(id).set({
                   "title": postController.text.toString(),
-                  "id": DateTime.now().millisecondsSinceEpoch.toString()
+                  "id": id
                 }).then((value) {
                   AppUtils().toastSuccessMessage("Post Added");
                   setState(() {

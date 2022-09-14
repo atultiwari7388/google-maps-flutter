@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/view/FirebasePractice/Services/AuthServices/auth_services.dart';
+import 'package:flutter_bootcamp/view/FirebasePractice/utils/app_utils.utils.dart';
 import 'package:flutter_bootcamp/view/FirebasePractice/view/home/add_post_screen.view.dart';
 
 class FirebaseHomeScreen extends StatefulWidget {
@@ -15,6 +16,7 @@ class _FirebaseHomeScreenState extends State<FirebaseHomeScreen> {
   final FirebaseAuthService authService = FirebaseAuthService();
   final ref = FirebaseDatabase.instance.ref("Post");
   final searchFilter = TextEditingController();
+  final editController = TextEditingController();
 
   Future<void> logout() async {
     showDialog(
@@ -112,6 +114,38 @@ class _FirebaseHomeScreenState extends State<FirebaseHomeScreen> {
                     return ListTile(
                       title: Text(snapshot.child("title").value.toString()),
                       subtitle: Text(snapshot.child("id").value.toString()),
+                      trailing: PopupMenuButton(
+                        icon: const Icon(Icons.more_vert_outlined),
+                        itemBuilder: (context) => [
+                          //
+                          PopupMenuItem(
+                            value: 1,
+                            child: ListTile(
+                              onTap: () {
+                                Navigator.pop(context);
+                                showMyDialog(title.toString(),
+                                    snapshot.child("id").value.toString());
+                              },
+                              title: const Text("Edit"),
+                              trailing: const Icon(Icons.edit_outlined),
+                            ),
+                          ),
+                          PopupMenuItem(
+                            value: 2,
+                            child: ListTile(
+                              onTap: () {
+                                Navigator.pop(context);
+                                ref
+                                    .child(
+                                        snapshot.child("id").value.toString())
+                                    .remove();
+                              },
+                              title: const Text("Delete"),
+                              trailing: const Icon(Icons.delete_outline),
+                            ),
+                          ),
+                        ],
+                      ),
                     );
                   } else if (title
                       .toString()
@@ -134,6 +168,46 @@ class _FirebaseHomeScreenState extends State<FirebaseHomeScreen> {
             context, MaterialPageRoute(builder: (_) => const AddPostScreen())),
         child: const Icon(Icons.add),
       ),
+    );
+  }
+
+  //create dialog box
+
+  Future<void> showMyDialog(String title, String id) async {
+    editController.text = title;
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Update"),
+          content: Container(
+            child: TextField(
+              controller: editController,
+              decoration: const InputDecoration(hintText: "Edit"),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text("Cancel", style: TextStyle(color: Colors.red)),
+            ),
+            TextButton(
+              onPressed: () {
+                ref.child(id).update(
+                    {"title": editController.text.toString()}).then((value) {
+                  AppUtils().toastSuccessMessage("Updated");
+                }).onError((error, stackTrace) {
+                  AppUtils().toastErrorMessage(error.toString());
+                });
+              },
+              child: const Text(
+                "Update",
+                style: TextStyle(color: Colors.green),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }
