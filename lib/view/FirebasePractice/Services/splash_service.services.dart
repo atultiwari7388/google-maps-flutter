@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/view/FirebasePractice/view/auth/login_screen.auth.view.dart';
+import 'package:flutter_bootcamp/view/FirebasePractice/view/home/firestore_list_screen.home.dart';
 import 'package:flutter_bootcamp/view/FirebasePractice/view/home/home.view.firebase.dart';
 
 class FirebaseSplashServices {
@@ -15,7 +16,8 @@ class FirebaseSplashServices {
       Timer(const Duration(seconds: 10), () {
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => const FirebaseHomeScreen()),
+            MaterialPageRoute(
+                builder: (context) => const FirestoreListScreen()),
             (route) => false);
       });
     } else {
